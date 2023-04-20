@@ -1,1 +1,40 @@
 <app-navigation></app-navigation>
+<div class="container app">
+    <div class="row">
+        <div class="col-sm-8">
+          <h2>Personas List </h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>
+                  <button class="btn-add">Add user</button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let persona of personas; let i = index">
+                <td>{{persona.name}}</td>
+                <td>{{persona.surname}}</td>
+                <td>
+                  <button class="btn-success">Edit</button>
+                  <button class="btn-danger">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <div class="pagination">
+                    <button class="paginate-btn" [disabled]="currentPage === 1" (click)="prevPage()"><</button>
+                    <span>{{ currentPage }}/{{ totalPages }}</span>
+                    <button class="paginate-btn" [disabled]="currentPage === totalPages" (click)="nextPage()">></button>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+    </div>
+  </div>
